@@ -1,7 +1,9 @@
 package sem3.drugs;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Сущность лекарство
@@ -30,6 +32,11 @@ public abstract class Drug implements Iterable<Component>, Comparable<Drug> {
             power += component.getPower();
         }
         return power;
+    }
+
+    public void addComponent(Component component) {
+        if (!(components.indexOf(component) != -1))
+            components.add(component);
     }
 
     /**
@@ -69,6 +76,7 @@ public abstract class Drug implements Iterable<Component>, Comparable<Drug> {
     @Override
     public int compareTo(Drug o) {
         int power = getDrugPower();
+        //Component name = components.
 //        if (power > o.getDrugPower()) {
 //            return 1;
 //        } else if (power < o.getDrugPower()) {

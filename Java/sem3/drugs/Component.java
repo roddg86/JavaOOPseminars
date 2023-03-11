@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * Сущность компонент лекарства(например вода, сода и т.п.)
  */
-public class Component {
+public class Component implements Comparable<Component>{
     // поле имя
     private String name;
 
@@ -71,5 +71,10 @@ public class Component {
     @Override
     public int hashCode() {
         return Objects.hash(name, weight, power);
+    }
+
+    @Override
+    public int compareTo(Component o) {
+        return 0;
     }
 }
