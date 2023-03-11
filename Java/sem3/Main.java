@@ -16,9 +16,9 @@ public class Main {
                 new Water("Вода", "15", 1));
         CatDrug catDrug = new CatDrug(componentsCat);
 
-        // выведем все компоненты лекарства
-        for (CatDrug it = catDrug; it.hasNext(); ) {
-            System.out.println(it.next());
+        // вывод всех компонентов с помощью интерфейса Iterable
+        for (Component component : catDrug) {
+            System.out.println(component);
         }
     }
 }

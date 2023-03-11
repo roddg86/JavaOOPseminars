@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Сущность лекарство
  */
-public abstract class Drug implements Iterator<Component> {
+public abstract class Drug implements Iterable<Component> {
 
     // поле список компонентов
     private List<Component> components;
@@ -20,25 +20,23 @@ public abstract class Drug implements Iterator<Component> {
     }
 
     /**
-     * Отвечает на вопрос есть ли следующий элемент этого класса
+     * Интерфейс реализован в виде анонимного класса
      *
-     * @return true || false
+     * Анонимный класс, класс без имени
+     * так как мы нигде его не используем нам не нужно его имя
+     *
+     * @return возвращает анонимный класс итератора через new, в этом классе мы обязаны переопределить все методы которые требуются
      */
     @Override
-    public boolean hasNext() {
-//        if(index < components.size())
-//            return  true;
-//        else return false;
-        return index < components.size();
-    }
+    public Iterator<Component> iterator() {
+        return new Iterator<Component>() {
+            public boolean hasNext() {
+                return index < components.size();
+            }
 
-    /**
-     * Отвечает на вопрос как получить следующий элемент этого класса
-     *
-     * @return возвращает следующий элемент списка, пока hasNext будет true
-     */
-    @Override
-    public Component next() {
-        return components.get(index++);
+            public Component next() {
+                return components.get(index++);
+            }
+        };
     }
 }
