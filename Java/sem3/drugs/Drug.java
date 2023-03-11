@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Сущность лекарство
  */
-public abstract class Drug implements Iterable<Component> {
+public abstract class Drug implements Iterable<Component>, Comparable<Drug> {
 
     // поле список компонентов
     private List<Component> components;
@@ -20,8 +20,21 @@ public abstract class Drug implements Iterable<Component> {
     }
 
     /**
-     * Интерфейс реализован в виде анонимного класса
+     * Получаем power лекарства, это сумма всех сил компонентов
      *
+     * @return общая сила всех компонентов
+     */
+    public int getDrugPower() {
+        int power = 0;
+        for (Component component : components) {
+            power += component.getPower();
+        }
+        return power;
+    }
+
+    /**
+     * Интерфейс реализован в виде анонимного класса
+     * <p>
      * Анонимный класс, класс без имени
      * так как мы нигде его не используем нам не нужно его имя
      *
@@ -38,5 +51,29 @@ public abstract class Drug implements Iterable<Component> {
                 return components.get(index++);
             }
         };
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%s {components: %s, power: %s}%n", this.getClass().getSimpleName(), components, getDrugPower()
+        );
+    }
+
+    /**
+     * compareTo - нужно переопределить через Ctrl + O, для сравнения объектов либо полей
+     *
+     * @param o the object to be compared.
+     * @return больше меньше либо равно
+     */
+    @Override
+    public int compareTo(Drug o) {
+        int power = getDrugPower();
+//        if (power > o.getDrugPower()) {
+//            return 1;
+//        } else if (power < o.getDrugPower()) {
+//            return -1;
+//        } else return 0;
+        return Integer.compare(power, o.getDrugPower());
     }
 }

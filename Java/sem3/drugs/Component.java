@@ -10,7 +10,7 @@ public class Component {
     // поле вес
     private String weight;
 
-    // поле сил действия
+    // поле сила действия компонента
     private int power;
 
     /**
