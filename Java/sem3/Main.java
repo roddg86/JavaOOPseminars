@@ -34,8 +34,6 @@ public class Main {
 
         System.out.println(components.size());
 
-
-
         List<Component> componentsCat1 = List.of(new Azitron("Азитрон", "2", 4),
                 new Water("Вода", "15", 1));
         List<Component> componentsCat2 = List.of(new Azitron("Азитрон", "4", 7),
@@ -47,7 +45,6 @@ public class Main {
 
         List<Component> componentsCat5 = new ArrayList<>();
 
-
         CatDrug drug1 = new CatDrug(componentsCat1);
         CatDrug drug2 = new CatDrug(componentsCat2);
         CatDrug drug3 = new CatDrug(componentsCat3);
@@ -56,7 +53,7 @@ public class Main {
 
         drug5.addComponent(new Water("Вода", "21", 3));
         drug5.addComponent(new Water("Вода", "21", 3));
-        drug5.addComponent(new Water("Вода", "21", 3));
+        drug5.addComponent(new Water("Вода", "21", 4));
         drug5.addComponent(new Azitron("Азитрон", "11", 100));
 
         Set<CatDrug> drugs = new HashSet<>();
