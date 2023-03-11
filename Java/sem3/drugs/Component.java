@@ -1,5 +1,7 @@
 package sem3.drugs;
 
+import java.util.Objects;
+
 /**
  * Сущность компонент лекарства(например вода, сода и т.п.)
  */
@@ -56,5 +58,18 @@ public class Component {
                 ", weight='" + weight + '\'' +
                 ", power=" + power +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Component component = (Component) o;
+        return power == component.power && Objects.equals(name, component.name) && Objects.equals(weight, component.weight);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, weight, power);
     }
 }
