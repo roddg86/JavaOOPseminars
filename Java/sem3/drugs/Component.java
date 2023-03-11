@@ -1,11 +1,24 @@
 package sem3.drugs;
 
+/**
+ * Сущность компонент лекарства(например вода, сода и т.п.)
+ */
 public class Component {
+    // поле имя
     private String name;
+
+    // поле вес
     private String weight;
 
+    // поле сил действия
     private int power;
 
+    /**
+     * Главный конструктор класса
+     * @param name имя
+     * @param weight вес
+     * @param power сила действия
+     */
     public Component(String name, String weight, int power) {
         this.name = name;
         this.weight = weight;
@@ -34,5 +47,14 @@ public class Component {
 
     public void setPower(int power) {
         this.power = power;
+    }
+
+    @Override
+    public String toString() {
+        return "Component{" +
+                "name='" + name + '\'' +
+                ", weight='" + weight + '\'' +
+                ", power=" + power +
+                '}';
     }
 }
